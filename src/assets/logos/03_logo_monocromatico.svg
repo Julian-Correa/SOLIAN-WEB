@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="240" viewBox="0 0 900 240">
+<title>SOLIAN — monograma ajustado, base naranja con mayor grosor</title>
+
+<g transform="translate(22 30) scale(0.88)">
+<g transform="translate(-19,-8)">
+  <path d="M 169.0,31.0 L 166.0,27.0 L 130.0,9.0 L 124.0,8.0 L 21.0,57.0 L 19.0,60.0 L 19.0,98.0 L 21.0,101.0 L 67.0,124.0 L 76.0,122.0 L 101.0,109.0 L 82.0,98.0 L 51.0,83.0 L 53.0,81.0 L 104.0,58.0 L 146.0,37.0 L 165.0,36.0 Z" fill="#1F2D2A"/>
+  <path d="M 175.0,87.0 L 133.0,65.0 L 128.0,66.0 L 103.0,78.0 L 101.0,81.0 L 112.0,88.0 L 145.0,104.0 L 147.0,106.0 L 66.0,145.0 L 35.0,145.0 L 21.0,158.0 L 18.0,161.0 L 130.0,161.0 L 174.0,132.0 Z" fill="#1F2D2A"/>
+</g>
+</g>
+<line x1="222" y1="40" x2="222" y2="204" stroke="#1F2D2A" stroke-width="2"/>
+<text x="264" y="124" font-family="Montserrat, Arial, sans-serif" font-size="76" font-weight="700" letter-spacing="1" fill="#1F2D2A">SOLIAN</text>
+<text x="268" y="165" font-family="Source Sans 3, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#1F2D2A">DESARROLLO DE SOFTWARE</text>
+</svg>
