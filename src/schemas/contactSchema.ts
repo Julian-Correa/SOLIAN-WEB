@@ -15,6 +15,7 @@ export const contactSchema = z.object({
   servicio: z.string().optional(),
   presupuesto: z.string().optional(),
   descripcion: optionalText(1000),
+  honeypot: z.string().optional(),
 });
 
 export type ContactFormValues = z.infer<typeof contactSchema>;
@@ -27,4 +28,5 @@ export const emptyContactForm: ContactFormValues = {
   servicio: '',
   presupuesto: '',
   descripcion: '',
+  honeypot: '',
 };

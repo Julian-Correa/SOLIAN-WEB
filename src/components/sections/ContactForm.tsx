@@ -73,6 +73,8 @@ export function ContactForm() {
   const handleReset = () => {
     reset({ ...emptyContactForm, servicio: searchParams.get('servicio') ?? '' });
     setSubmitted(false);
+    setServerError(null);
+    setDemoError(null);
   };
 
   if (submitted) {
@@ -149,10 +151,10 @@ export function ContactForm() {
           {...register('presupuesto')}
         >
           <option value="">Por definir</option>
-          <option value="menos-de-5000">Menos de $5.000</option>
-          <option value="entre-5000-y-10000">Entre $5.000 y $10.000</option>
-          <option value="entre-10000-y-25000">Entre $10.000 y $25.000</option>
-          <option value="mas-de-25000">Más de $25.000</option>
+          <option value="menos-de-5000">Menos de ARS 250.000</option>
+          <option value="entre-5000-y-10000">Entre ARS 250.000 y ARS 500.000</option>
+          <option value="entre-10000-y-25000">Entre ARS 500.000 y ARS 1.000.000</option>
+          <option value="mas-de-1000000">Más de ARS 1.000.000</option>
         </select>
       </Field>
 
@@ -184,6 +186,15 @@ export function ContactForm() {
           <p>{serverError}</p>
         </div>
       ) : null}
+
+      <input
+        {...register('honeypot')}
+        type="text"
+        className="hidden"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
 
       <Button type="submit" size="lg" className="w-full" disabled={submitting}>
         {submitting ? 'Enviando...' : 'Enviar consulta'}
