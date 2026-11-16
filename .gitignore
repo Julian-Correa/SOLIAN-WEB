@@ -1,0 +1,4 @@
+# variables de entorno (no commitear)
+.env
+.env.local
+.env.*.local

@@ -1,7 +1,8 @@
 import type { ContactPayload } from '@/types/contact';
 import { ContactApiError } from './errors';
 
-const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3000/api';
+const CONTACT_ENDPOINT =
+  import.meta.env.VITE_CONTACT_ENDPOINT ?? 'http://localhost:8781/functions/v1/contact';
 const CONTACT_MODE = import.meta.env.VITE_CONTACT_MODE ?? 'demo';
 
 export async function submitContactRequest(payload: ContactPayload): Promise<void> {
@@ -9,7 +10,7 @@ export async function submitContactRequest(payload: ContactPayload): Promise<voi
     throw new ContactApiError(503, 'Modo demo: el envío de consultas no está disponible.');
   }
 
-  const response = await fetch(`${API_URL}/contacts`, {
+  const response = await fetch(CONTACT_ENDPOINT, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

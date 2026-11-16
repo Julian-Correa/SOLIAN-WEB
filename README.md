@@ -32,31 +32,43 @@ npm run preview
 Copiar `.env.example` a `.env` (o configurar las variables en el entorno).
 
 ```env
-VITE_API_URL=http://localhost:3000/api
+VITE_CONTACT_ENDPOINT=http://localhost:8781/functions/v1/contact
 VITE_CONTACT_MODE=demo
 VITE_WHATSAPP_URL=
 ```
 
-- `VITE_API_URL`: endpoint futuro de la API REST de SOLIAN.
+- `VITE_CONTACT_ENDPOINT`: URL de la Edge Function que recibe las consultas.
 - `VITE_CONTACT_MODE`: `demo` (por defecto) o `api`.
 - `VITE_WHATSAPP_URL`: URL de WhatsApp configurable. Si está vacía, el acceso por WhatsApp no se muestra.
 
 ## Formulario de contacto
 
 - Validación con Zod + React Hook Form.
-- Servicio desacoplado (`src/services/api/contactService.ts`) que consume `POST {VITE_API_URL}/contacts`.
+- Servicio desacoplado (`src/services/api/contactService.ts`) que hace `POST {VITE_CONTACT_ENDPOINT}`.
 - En modo demo (`VITE_CONTACT_MODE=demo`) el envío no realiza ninguna petición ni simula éxito.
-- En modo API se realiza la integración con la futura backend.
+- En modo API la consulta se persiste en PostgreSQL (Supabase) y se notifica por email (Resend).
 
-## Backend futuro
+## Rutas
+
+| Ruta | Contenido |
+| --- | --- |
+| `/` | Inicio |
+| `/servicios` | Servicios |
+| `/proyectos` | Proyectos |
+| `/nosotros` | Nosotros |
+| `/contacto` | Contacto |
+| `/demo` | Caso de estudio (portfolio) |
+
+## Backend
 
 - Frontend: React + TypeScript.
-- Backend: Node.js + Express + TypeScript.
-- Base de datos: PostgreSQL.
-- ORM: Prisma.
+- Backend: Supabase Edge Functions + TypeScript.
+- Base de datos: PostgreSQL (Supabase).
+- Email: Resend.
 
 ## Decisiones de diseño
 
 - Paleta oficial: verde petróleo `#1F2D2A`, naranja quemado `#E16A1F`, marfil `#F5F4F0`, gris pizarra `#6B7280`.
 - Tipografías: Montserrat (títulos) y Source Sans 3 (textos).
 - Estética minimalista, fondos sólidos, sin gradientes ni efectos decorativos.
+

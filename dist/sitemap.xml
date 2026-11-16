@@ -27,7 +27,13 @@
   <url>
     <loc>https://solian-web.netlify.app/contacto</loc>
     <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changef>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://solian-web.netlify.app/demo</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

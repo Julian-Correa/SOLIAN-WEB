@@ -68,7 +68,8 @@ export function ProjectsSection() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Button to="/demo">Ver caso de estudio</Button>
           <Button to="/contacto" variant="secondary">
             Solicitar esta solución
           </Button>

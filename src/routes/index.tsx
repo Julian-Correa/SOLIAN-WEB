@@ -5,6 +5,7 @@ import { ServicesPage } from '@/pages/Services';
 import { ProjectsPage } from '@/pages/Projects';
 import { AboutPage } from '@/pages/About';
 import { ContactPage } from '@/pages/Contact';
+import { DemoPage } from '@/pages/Demo';
 import { NotFoundPage } from '@/pages/NotFound';
 
 export function AppRoutes() {
@@ -16,6 +17,7 @@ export function AppRoutes() {
         <Route path="proyectos" element={<ProjectsPage />} />
         <Route path="nosotros" element={<AboutPage />} />
         <Route path="contacto" element={<ContactPage />} />
+        <Route path="demo" element={<DemoPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
