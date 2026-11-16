@@ -66,6 +66,18 @@ VITE_WHATSAPP_URL=
 - Base de datos: PostgreSQL (Supabase).
 - Email: Resend.
 
+### Edge Function `contact`
+
+Secrets configurados en Supabase (Edge Functions → Secrets):
+
+- `RESEND_API_KEY`: clave de Resend con permiso `sending`.
+- `RESEND_FROM_EMAIL`: remitente verificado en Resend.
+- `RESEND_TO_EMAIL`: casilla que recibe las notificaciones.
+- `RATE_LIMIT_SALT`: salt para hashear la IP usada en el rate limit.
+- `ALLOWED_ORIGINS`: orígenes permitidos separados por coma (por defecto `*`).
+
+Protecciones: honeypot, máximo 3 envíos cada 10 minutos por IP (hash HMAC-SHA256), límite de 16 KB por request y de largo por campo, `reply_to` con el email del contacto, y sin insert anónimo directo (solo la función con service role escribe en `contacts`).
+
 ## Decisiones de diseño
 
 - Paleta oficial: verde petróleo `#1F2D2A`, naranja quemado `#E16A1F`, marfil `#F5F4F0`, gris pizarra `#6B7280`.
