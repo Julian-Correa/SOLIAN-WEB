@@ -59,6 +59,35 @@ VITE_WHATSAPP_URL=
 | `/contacto` | Contacto |
 | `/demo` | Caso de estudio (portfolio) |
 
+## Demostraciones animadas
+
+Las simulaciones de producto están construidas con React + CSS keyframes: no usan videos, GIF ni imágenes.
+
+### Dashboard del HERO
+
+La tarjeta "Panel de gestión" del inicio es un dashboard SaaS animado (`src/components/hero-dashboard/`):
+
+| Archivo | Rol |
+| --- | --- |
+| `Dashboard.tsx` | Orquesta la secuencia, el bucle de actualizaciones y las animaciones |
+| `KpiCard.tsx` | Tarjeta de métrica con conteo animado desde cero |
+| `SalesChart.tsx` | Gráfico de línea/área de 7 días con dibujo progresivo |
+| `ActivityFeed.tsx` | Registros de actividad que aparecen escalonados y rotan |
+| `useInView.ts` | IntersectionObserver + detección de `prefers-reduced-motion` |
+| `useCountUp.ts` | Interpolación con `requestAnimationFrame` (easeOutCubic) |
+
+Secuencia: fade-in del panel → KPIs con stagger y conteo → gráfico que se dibuja → actividad escalonada → punto "en vivo" parpadeando. Después, un bucle con intervalos jitterizados (1,7–3,2 s) actualiza métricas, rota la actividad y redibuja el gráfico cada 8 ticks. El contenido tiene altura fija para no producir saltos de layout y se pausa cuando la pestaña no está visible.
+
+### Demos de la sección Proyectos
+
+Cada card de "Soluciones que podemos desarrollar" incluye una simulación propia (`src/components/demos/`): `WorkshopDemo`, `StoreDemo` e `InventoryDemo`, compartiendo `DemoFrame` y el hook `useDemoTick`. La card seleccionada reproduce su animación; las demás quedan estáticas y atenuadas.
+
+### Accesibilidad y rendimiento
+
+- `prefers-reduced-motion: reduce`: se desactivan animaciones, conteos y actualizaciones periódicas; se muestran los valores finales.
+- Las demos son decorativas (`aria-hidden`) y no incluyen controles interactivos.
+- Las animaciones corren solo con el componente visible en el viewport y se detienen con la pestaña oculta.
+
 ## Backend
 
 - Frontend: React + TypeScript.

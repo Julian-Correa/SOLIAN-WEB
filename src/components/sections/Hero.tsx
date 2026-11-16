@@ -1,3 +1,4 @@
+import { Dashboard } from '@/components/hero-dashboard/Dashboard';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
 
@@ -39,26 +40,13 @@ export function Hero() {
         </div>
 
         <Reveal delay={200} className="relative">
-          <div className="rounded-2xl bg-petrolio p-6 shadow-2xl sm:p-8">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2" aria-hidden="true">
-                <span className="h-2.5 w-2.5 rounded-full bg-cream/30" />
-                <span className="h-2.5 w-2.5 rounded-full bg-cream/30" />
-                <span className="h-2.5 w-2.5 rounded-full bg-cream/30" />
-              </div>
-              <span className="font-display text-sm font-semibold text-cream">Panel de gestión</span>
-            </div>
-            <div className="mt-6 space-y-4">
-              {[0, 1, 2].map((row) => (
-                <div key={row} className="rounded-xl bg-cream/5 p-4">
-                  <div className="h-3 w-28 rounded-full bg-cream/20" />
-                  <div className="mt-3 h-2.5 w-2/3 rounded-full bg-cream/10" />
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 rounded-xl bg-accent/15 p-4">
-              <div className="h-3 w-24 rounded-full bg-accent/60" />
-              <div className="mt-2 h-2.5 w-1/2 rounded-full bg-cream/20" />
+          <div className="relative overflow-hidden rounded-2xl bg-petrolio p-6 shadow-2xl sm:p-8">
+            <div
+              className="pointer-events-none absolute -right-16 -top-20 h-48 w-48 rounded-full bg-accent/10 blur-3xl"
+              aria-hidden="true"
+            />
+            <div className="relative">
+              <Dashboard />
             </div>
           </div>
         </Reveal>
